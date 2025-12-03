@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 const categories = ['All', 'Face Tissue', 'Bathroom Tissue', 'Kitchen Towel', 'Napkins', 'Wet Wipes'];
 import Header from './components/Header';
 import CategoryFilter from './components/CategoryFilter';
+const CategoryFilterAny = CategoryFilter as unknown as React.ComponentType<any>;
 import Features from './components/Features';
 import FeaturesSection from './components/FeatureSection';
 
@@ -121,10 +122,10 @@ export default function PassionTissueWebsite() {
       <Features />
       </section>
       
-      {/* overview  */}
       <section>
-   <CategoryFilter category={selectedCategory} products={filteredProducts.filter(p => p.ply !== undefined)} onProductClick={setSelectedProduct} />
+   <CategoryFilterAny category={selectedCategory} products={filteredProducts.filter(p => p.ply !== undefined)} onProductClick={setSelectedProduct} />
       </section>
+      
 
       {/* Products Grid */}
       {/* <section id="products" className="py-16">
