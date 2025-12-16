@@ -6,8 +6,10 @@ import ProductDetailPage from './components/ProductDetail';
 import Link from 'next/link';
 const categories = ['All', 'Face Tissue', 'Bathroom Tissue', 'Kitchen Towel', 'Napkins', 'Wet Wipes'];
 
-import CategoryFilter from './components/CategoryFilter';
-const CategoryFilterAny = CategoryFilter as unknown as React.ComponentType<string>;
+// import CategoryFilter from './components/CategoryFilter';
+// const CategoryFilterAny = CategoryFilter as unknown as React.ComponentType<string>;
+import ProductCategories from './components/CategoryFilter';
+
 import Features from './components/Features';
 import FeaturesSection from './components/FeatureSection';
 import ActivityPromotion from './components/ActivityPromotion'
@@ -114,9 +116,8 @@ export default function PassionTissueWebsite() {
       </section>
       
       <section>
-   <CategoryFilterAny category={selectedCategory} products={filteredProducts.filter(p => p.ply !== undefined)} onProductClick={setSelectedProduct} />
-      </section>
-      
+  <ProductCategories />
+</section>
 
       {/* Products Grid */}
       {/* <section id="products" className="py-16">

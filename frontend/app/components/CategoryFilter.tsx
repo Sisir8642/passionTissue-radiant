@@ -1,50 +1,40 @@
-const categories = ['All', 'Face Tissue', 'Bathroom Tissue', 'Kitchen Towel', 'Napkins', 'Wet Wipes'];
-import React, { useState, useEffect } from 'react';
-import products from '@/data/products';
+'use client';
 
- export default function ProductCategories() {
-  const [activeCategory, setActiveCategory] = useState('Bathroom-Tissue');
-  const [activeSubcategory, setActiveSubcategory] = useState('Prime 3 Ply Bathroom Tissue 240 Sheets');
+import React, { useState } from 'react';
+import { products, type Product } from '@/data/products';
 
+export default function ProductCategories() {
   const categories = Array.from(new Set(products.map(p => p.category)));
-  
+
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
+
   const subcategories = Array.from(
     new Set(
       products
-        .filter(p => p.category === activeCategory && p.name)
+        .filter(p => p.category === activeCategory)
         .map(p => p.name)
     )
   );
 
   const filteredProducts = products.filter(p => {
     if (p.category !== activeCategory) return false;
-    if (subcategories.length > 0 && p.name) {
-      return p.name === activeSubcategory;
-    }
+    if (activeSubcategory) return p.name === activeSubcategory;
     return true;
   });
 
   return (
     <section className="min-h-screen py-20 px-4 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
-        
+
+        {/* Categories */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <button
               key={cat}
               onClick={() => {
                 setActiveCategory(cat);
-
-                const newSubs = Array.from(
-                  new Set(
-                    products
-                      .filter(p => p.category === cat && p.name)
-                      .map(p => p.name)
-                  )
-                );
-                if (newSubs.length > 0) {
-                  setActiveSubcategory(newSubs[0]);
-                }
+                setActiveSubcategory(null);
               }}
               className={`px-10 py-4 rounded-xl font-bold text-lg transition-all ${
                 activeCategory === cat
@@ -52,23 +42,24 @@ import products from '@/data/products';
                   : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-purple-400 hover:shadow-md'
               }`}
             >
-              {cat.replace('-', ' ')}
+              {cat}
             </button>
           ))}
         </div>
 
         <h2 className="text-5xl font-bold text-gray-800 mb-4 text-center">
-          {activeCategory.replace('-', ' ')}
+          {activeCategory}
         </h2>
         <div className="w-24 h-1 bg-purple-600 mx-auto mb-12"></div>
 
+        {/* Subcategories */}
         {subcategories.length > 0 && (
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {subcategories.map((sub) => (
+            {subcategories.map(sub => (
               <button
                 key={sub}
                 onClick={() => setActiveSubcategory(sub)}
-                className={`px-8 py-3 rounded-full font-semibold text-base transition-all ${
+                className={`px-8 py-3 rounded-full font-semibold transition-all ${
                   activeSubcategory === sub
                     ? 'bg-purple-600 text-white shadow-lg scale-105'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -80,6 +71,7 @@ import products from '@/data/products';
           </div>
         )}
 
+        {/* Products */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {filteredProducts.map((product, index) => (
             <div
@@ -98,11 +90,12 @@ import products from '@/data/products';
               </div>
 
               <div className="text-center space-y-3">
-                <h3 className="text-xl font-bold text-gray-800 leading-tight min-h-[3.5rem]">
+                <h3 className="text-xl font-bold text-gray-800">
                   {product.name}
                 </h3>
-                <p className="text-sm text-gray-600 min-h-[2.5rem] font-medium font-semibold">{product.shortDesc}</p>
-                
+                <p className="text-sm text-gray-600 font-semibold">
+                  {product.shortDesc}
+                </p>
               </div>
             </div>
           ))}
