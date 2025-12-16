@@ -10,9 +10,13 @@ import {
 } from "@/components/ui/sheet";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
+import type { Product } from "@/data/products";
 
 export default function CartSheet() {
-  const [cartItems, setCartItems] = useState([]);
+
+
+const [cartItems, setCartItems] = useState<Product[]>([]); 
+
 
   return (
     <Sheet>
