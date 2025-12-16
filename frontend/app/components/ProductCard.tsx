@@ -9,7 +9,7 @@ export default function ProductCard({ product, onClick }: { product: typeof prod
       onClick={onClick}
       className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer group max-w-sm mx-auto"
     >
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50">
+      <div className="relative overflow-hidden bg-linear-to-br from-blue-50 to-purple-50">
         <Image
           src={product.image} 
           alt={product.name}

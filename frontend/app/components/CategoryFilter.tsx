@@ -4,7 +4,7 @@ import products from '@/data/products';
 
  export default function ProductCategories() {
   const [activeCategory, setActiveCategory] = useState('Bathroom-Tissue');
-  const [activeSubcategory, setActiveSubcategory] = useState('Compact 3 Ply Bathroom Tissue');
+  const [activeSubcategory, setActiveSubcategory] = useState('Prime 3 Ply Bathroom Tissue 240 Sheets');
 
   const categories = Array.from(new Set(products.map(p => p.category)));
   
@@ -25,7 +25,7 @@ import products from '@/data/products';
   });
 
   return (
-    <section className="min-h-screen py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section className="min-h-screen py-20 px-4 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         
         <div className="flex flex-wrap justify-center gap-4 mb-16">

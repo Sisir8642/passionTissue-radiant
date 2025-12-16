@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Passion. All rights reserved. | Nepal&apos #1 Premium Tissue Brand</p>
+            <p>&copy; 2024 Passion. All rights reserved. | Nepal&apos; #1 Premium Tissue Brand</p>
           </div>
         </div>
       </footer>

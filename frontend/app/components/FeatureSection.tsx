@@ -73,35 +73,7 @@ export default function FeaturesSection() {
           ))}
         </div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-6">
-          <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-6 text-white shadow-lg">
-            <div className="flex items-center">
-              <div className="bg-white bg-opacity-20 rounded-full p-3 mr-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold mb-1">Quality Assured</h4>
-                <p className="text-purple-100 text-sm">Certified manufacturing process with strict quality controls</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-6 text-white shadow-lg">
-            <div className="flex items-center">
-              <div className="bg-white bg-opacity-20 rounded-full p-3 mr-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="text-xl font-bold mb-1">Always Available</h4>
-                <p className="text-pink-100 text-sm">Wide distribution network across Nepal for easy access</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

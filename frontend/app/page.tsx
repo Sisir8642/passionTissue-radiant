@@ -1,24 +1,20 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Package, Star } from 'lucide-react';
 import products from '../data/products';
 import ProductCard from './components/ProductCard';
 import ProductDetailPage from './components/ProductDetail';
 import Link from 'next/link';
-import Footer from './components/Footer';
 const categories = ['All', 'Face Tissue', 'Bathroom Tissue', 'Kitchen Towel', 'Napkins', 'Wet Wipes'];
-import Header from './components/Header';
+
 import CategoryFilter from './components/CategoryFilter';
-const CategoryFilterAny = CategoryFilter as unknown as React.ComponentType<any>;
+const CategoryFilterAny = CategoryFilter as unknown as React.ComponentType<string>;
 import Features from './components/Features';
 import FeaturesSection from './components/FeatureSection';
-
+import ActivityPromotion from './components/ActivityPromotion'
 
 
 export default function PassionTissueWebsite() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const images = [
     "/images/tissue6.png",
     "/images/tissue2.png",
@@ -34,17 +30,15 @@ export default function PassionTissueWebsite() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 3000); 
     
     return () => clearInterval(interval);
   }, [images.length]);
   
-  
-  
-  
-  
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState<typeof products[number] | null>(null);
+  
   const filteredProducts = selectedCategory === 'All'
   ? products
   : products.filter(p => p.category === selectedCategory);
@@ -55,7 +49,6 @@ export default function PassionTissueWebsite() {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <section className="relative w-full h-[92vh] overflow-hidden ">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#d27cbf,#b34aa4,#5a189a)]"></div>
@@ -103,8 +96,6 @@ export default function PassionTissueWebsite() {
           </div>
         </div>
 
-
-
         {/* Optional: Dots indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {images.map((_, index) => (
@@ -147,15 +138,14 @@ export default function PassionTissueWebsite() {
         </div>
       </section> */}
 
-
-      {/* Features Section */}
       <section >
         <FeaturesSection />
       </section>
-      
 
-      {/* Footer */}
-      <Footer />
+      <section>
+        <ActivityPromotion />
+      </section>
+
     </div>
   );
 }

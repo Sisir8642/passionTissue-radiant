@@ -1,30 +1,25 @@
 'use client';
+import { use } from 'react';
 import products from '@/data/products';
-import { useParams } from 'next/navigation';
-import ProductCard from '@/app/components/ProductCard';
+import ProductDetailPage from '@/app/components/ProductDetail';
 
-export default function ProductDetailPage() {
-  const params = useParams();
-  const { category, id } = params;
+interface Props {
+  params: Promise<{ category: string; id: string }>;
+}
 
-  const categoryStr = Array.isArray(category) ? category[0] : category;
-  const idStr = Array.isArray(id) ? id[0] : id;
+export default function ProductDetail({ params }: Props) {
+  const { category, id } = use(params); // unwrap the promise
 
-  const product = (categoryStr && idStr)
-    ? products.find(
-        p => p.id.toString() === idStr && p.category.toLowerCase() === categoryStr.toLowerCase()
-      )
-    : undefined;
+  const categoryStr = decodeURIComponent(category).toLowerCase();
+  const idStr = decodeURIComponent(id);
+
+  const product = products.find(
+    (p) => p.id === idStr && p.category.toLowerCase() === categoryStr
+  );
 
   if (!product) {
-    return <p className="p-10">Product not found</p>;
+    return <p className="p-10 text-red-600">Product not found</p>;
   }
 
-  return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6">{product.name}</h1>
-      <ProductCard product={product} onClick={() => {}} />
-      <p className="mt-4">{product.description}</p>
-    </div>
-  );
+  return <ProductDetailPage product={product} />;
 }
