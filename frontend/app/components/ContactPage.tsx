@@ -63,7 +63,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Call Us",
-      content: "+977 XX-XXXXXXX",
+      content: "+977 980-2022445",
       subtitle: "Mon-Fri, 9:00 AM - 5:00 PM",
       bgColor: "bg-blue-100",
       iconColor: "text-blue-600"

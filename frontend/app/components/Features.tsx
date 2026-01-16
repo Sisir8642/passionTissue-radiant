@@ -75,7 +75,7 @@ export default function LifetimeTissue() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-purple-50 to-purple-700">
+    <div className="min-h  bg-gradient-to-b from-white to-purple-200">
       <div className="max-w-7xl mx-auto px-4 py-16">
 
         <div className="text-center mb-16">

@@ -1,35 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Percent,Gift, TrendingUp,Users, Award, Calendar, ChevronRight} from "lucide-react";
 import Link from "next/link";
+const basePath = '/new';
 
 export default function PromotionsSection() {
     
-  const promotions = [
-    {
-      id: 1,
-      icon: <Percent size={30} />,
-      title: 'Bulk Order Discounts',
-      description: 'Get up to 25% off on bulk orders for hotels, restaurants, and businesses',
-      color: 'from-purple-500 to-pink-500',
-      badge: 'Limited Time'
-    },
-    {
-      id: 2,
-      icon: <Gift size={32} />,
-      title: 'Family Pack Deals',
-      description: 'Buy 3 family packs and get 1 pocket tissue pack FREE',
-      color: 'from-pink-500 to-purple-500',
-      badge: 'Special Offer'
-    },
-    {
-      id: 3,
-      icon: <TrendingUp size={32} />,
-      title: 'New Product Launch',
-      description: 'Introducing Passion Premium 4-Ply - Ultra luxury softness',
-      color: 'from-purple-500 to-pink-500',
-      badge: 'Coming Soon'
-    }
-  ];
+  // const promotions = [
+  //   {
+  //     id: 1,
+  //     icon: <Percent size={30} />,
+  //     title: 'Bulk Order Discounts',
+  //     description: 'Get up to 25% off on bulk orders for hotels, restaurants, and businesses',
+  //     color: 'from-purple-500 to-pink-500',
+  //     badge: 'Limited Time'
+  //   },
+  //   {
+  //     id: 2,
+  //     icon: <Gift size={32} />,
+  //     title: 'Family Pack Deals',
+  //     description: 'Buy 3 family packs and get 1 pocket tissue pack FREE',
+  //     color: 'from-pink-500 to-purple-500',
+  //     badge: 'Special Offer'
+  //   },
+  //   {
+  //     id: 3,
+  //     icon: <TrendingUp size={32} />,
+  //     title: 'New Product Launch',
+  //     description: 'Introducing Passion Premium 4-Ply - Ultra luxury softness',
+  //     color: 'from-purple-500 to-pink-500',
+  //     badge: 'Coming Soon'
+  //   }
+  // ];
 
   const activities = [
     {
@@ -37,38 +38,38 @@ export default function PromotionsSection() {
       icon: <Users size={24}  color="purple" />,
       title: 'Community Support',
       description: 'We donate 1% of sales to local community hygiene programs',
-      image: '/images/cummunity.jpg'
+      image: `${basePath}/images/cummunity.jpg`
     },
     {
       id: 2,
       icon: <Award size={24} color="purple"  />,
       title: 'Quality Certified',
       description: 'ISO certified and awarded Nepal\'s Best Tissue Brand 2024',
-      image: '/images/quality.jpg'
+      image: `${basePath}/images/quality.jpg`
     },
     {
       id: 3,
       icon: <Calendar size={24} color="purple" />,
       title: 'Seasonal Campaigns',
       description: 'Join our monsoon hygiene awareness campaign across Nepal',
-      image: '/images/seasonal.jpg'
+      image: `${basePath}/images/seasonal.png`
     }
   ];
 
   return (
     <section className="py-16 bg-linear-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <div className="text-center mb-13">
+        {/* <div className="text-center mb-13">
           <h2 className="text-4xl font-bold text-gray-900 ">
             Current Promotions & Offers
           </h2>
           <p className="text-xl text-gray-600 mt-6 ">
             Exclusive offers and community initiatives
           </p>
-        </div>
+        </div> */}
 
         {/* Promotions Cards */}
-          <Link href='/products'>
+          {/* <Link href='/products'>
         <div className="grid md:grid-cols-3 gap-6 mb-30">
           {promotions.map((promo, index) => (
             <div
@@ -99,7 +100,7 @@ export default function PromotionsSection() {
             </div>
           ))}
         </div>
-          </Link>
+          </Link> */}
 
         {/* Activities Grid */}
         <div className="mb-12">
@@ -133,7 +134,7 @@ export default function PromotionsSection() {
         </div>
 
         {/* Call to Action Banner */}
-        <div className="bg-linear-to-r from-purple-600 to-purple-400 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+        <div className="bg-linear-to-r from-purple-400 to-purple-400 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24" />
           
